@@ -27,15 +27,16 @@ public class DBRunner {
 		
 		System.out.println("Hourly uploads will begin in " + (hour/1000) + " seconds");
 		System.out.println("Daily uploads will begin in " + (((twoDay/1000)/60)/60) + " hours");
-		
+		ScheduledFuture<?> hourScheduler;
+		ScheduledFuture<?> weekScheduler;
 		ScheduledExecutorService hourBasedOperator = Executors.newScheduledThreadPool(1);
-		ScheduledFuture<?> hourScheduler = hourBasedOperator.scheduleAtFixedRate(p, hour, 3600000/6, TimeUnit.MILLISECONDS);
-		//ScheduledFuture<?> hourScheduler = hourBasedOperator.scheduleAtFixedRate(p, 0, 10, TimeUnit.SECONDS);
+		if(args == null || args.length == 0) hourScheduler = hourBasedOperator.scheduleAtFixedRate(p, hour, 3600000/6, TimeUnit.MILLISECONDS);
+		else if(args[0].equalsIgnoreCase("TEST")) hourScheduler = hourBasedOperator.scheduleAtFixedRate(p, 0, 10, TimeUnit.SECONDS);
 		
 		
 		ScheduledExecutorService weekBasedOperator = Executors.newScheduledThreadPool(1);
-		ScheduledFuture<?> weekScheduler = weekBasedOperator.scheduleAtFixedRate(q, twoDay, 604800000, TimeUnit.MILLISECONDS);
-		//ScheduledFuture<?> weekScheduler = weekBasedOperator.scheduleAtFixedRate(q, 0, 240, TimeUnit.SECONDS);
+		if(args == null || args.length == 0) weekScheduler = weekBasedOperator.scheduleAtFixedRate(q, twoDay, 604800000, TimeUnit.MILLISECONDS);
+		else if(args[0].equalsIgnoreCase("TEST")) weekScheduler = weekBasedOperator.scheduleAtFixedRate(q, 1440, 1440, TimeUnit.SECONDS);
 		
 	}
 	

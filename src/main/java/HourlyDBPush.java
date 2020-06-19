@@ -16,7 +16,7 @@ import okhttp3.Response;
 public class HourlyDBPush implements Runnable {
 	
 	public static final String COINCAP_URL = "api.coincap.io/v2/assets";
-	private static final int SIZE = 1;
+	private static final int SIZE = 6;
 	public static OkHttpClient client = new OkHttpClient();
 	private Currency[] currency;
 	private int portion;
