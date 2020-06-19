@@ -16,12 +16,13 @@ import okhttp3.Response;
 public class HourlyDBPush implements Runnable {
 	
 	public static final String COINCAP_URL = "api.coincap.io/v2/assets";
+	private static final int SIZE = 1;
 	public static OkHttpClient client = new OkHttpClient();
 	private Currency[] currency;
 	private int portion;
 	
 	
-	public HourlyDBPush(int delay) {
+	public HourlyDBPush() {
 		String resourceName = "/CurrencyFixture.json";
         InputStream is = DailyDBPush.class.getResourceAsStream(resourceName);
         if (is == null) {
@@ -35,7 +36,7 @@ public class HourlyDBPush implements Runnable {
         
         for(int i = 0; i < currency.length; i++) {
         	String cd = array.getJSONObject(i).getString("code");
-        	currency[i] = new Currency(cd, delay);
+        	currency[i] = new Currency(cd, SIZE);
         }
         
         DBRunner.currencyCount = array.length();
@@ -71,7 +72,7 @@ public class HourlyDBPush implements Runnable {
 		if(portion==currency[0].getSize()) {
 			writeToDB(currency);
 			System.out.println(LocalDateTime.now().toString());
-			portion = 1;
+			portion = 0;
 			clearArr(currency);
 		}
 	}

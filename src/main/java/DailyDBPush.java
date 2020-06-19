@@ -20,52 +20,49 @@ public class DailyDBPush implements Runnable {
 		try {
 			Connection dbConn = DBConnector.getRemoteConnection();
 			if(dbConn == null) return;
-			String query = "SELECT * from Hourly";
+			//String query = "SELECT * from Hourly WHERE time > " + shaveToYesterday();
+			String query  = "SELECT * from Hourly";
 			PreparedStatement pst;
-			pst = dbConn.prepareStatement(query);
+			pst = dbConn.prepareStatement(query, ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
 			ResultSet rs = pst.executeQuery();
 			ResultSetMetaData rsmd = rs.getMetaData();
-			while(rs.getInt("time") < shaveToYesterday()) {
-				rs.next();
-			}
-			
+			rs.afterLast();
+			rs.previous();
 			for(int i = 0; i < data.length; i++) {
 				data[i] = new Currency(rsmd.getColumnLabel(i+2), SIZE);
 			}
-			/*
-			for(int i = 0 ; i < SIZE; i++) {
-				data[i].setVal(rs.getDouble(data[i].getCode()), i);
-			}
-			*/
-			double[][] dat = new double[SIZE][data[0].getSize()];
+			
+			double[][] dat = new double[SIZE][data.length];
 			for(int i = 0; i < dat.length; i++) {
-				for(int j = 1; j < dat[i].length; j++) {
+				for(int j = 1; j < dat[i].length+1; j++) {
 					dat[i][j-1] = rs.getDouble(j+1);
 				}
-				rs.next();
+				//System.out.println(rs.getRow());
+				rs.previous();
 			}
 			
 			for(int i = 0; i < dat[0].length; i++) {
 				for(int j = 0; j < dat.length; j++) {
-					data[i].setVal(dat[j][i], i);
+					data[i].setVal(dat[j][i], j);
+					System.out.println(data[i].getCode() + " at " + j + " = " + dat[j][i]);
 				}
 			}
 			
 			pst.execute();
 			
-			String query1 = "INSERT INTO Hourly (time";
+			String query1 = "INSERT INTO Daily (time";
 			for(int i = 0; i < data.length; i++) {
-				query+= ", ";
-				query += data[i].getCode();
+				query1+= ", ";
+				query1 += data[i].getCode();
 			}
 			
-			query += ") VALUES (?";
+			query1 += ") VALUES (?";
 			
 			for(int i = 0; i < data.length; i++) {
-				query += ", ?";
+				query1 += ", ?";
 			}
 			
-			query += ")";
+			query1 += ")";
 			
 			PreparedStatement ps = dbConn.prepareStatement(query1);
 			System.out.print("Pushing data: " + DBConnector.getTime());
