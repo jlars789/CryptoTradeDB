@@ -56,6 +56,13 @@ public class HourlyDBPush implements Runnable {
 		
 		JSONArray exchangeRates = getMassExchangeRate();
 		
+		if(portion==currency[0].getSize()) {
+			writeToDB(currency);
+			System.out.println(LocalDateTime.now().toString());
+			portion = 0;
+			clearArr(currency);
+		}
+		
 		for(int i = 0; i < currency.length; i++) {
 			for(int j = 0; j < exchangeRates.length(); j++) {
 				String temp = exchangeRates.getJSONObject(j).getString("symbol");
@@ -69,12 +76,7 @@ public class HourlyDBPush implements Runnable {
 		//writeToDB(interval);
 		portion++;
 		
-		if(portion==currency[0].getSize()) {
-			writeToDB(currency);
-			System.out.println(LocalDateTime.now().toString());
-			portion = 0;
-			clearArr(currency);
-		}
+		
 	}
 	
 	private static void clearArr(Currency[] arr) {
