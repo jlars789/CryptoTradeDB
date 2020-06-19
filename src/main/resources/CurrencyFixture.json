@@ -1,0 +1,176 @@
+[
+	{
+		"name": "Algorand",
+		"code": "ALGO",
+		"asset_id": "ff9a29fc-4b17-458d-8eb3-419aafe057b7"
+	},
+	
+	{
+		"name": "Cosmos",
+		"code": "ATOM",
+		"asset_id": "4406508d-1a46-4062-93c1-fbdc186fc9d4"
+	},
+	
+	{
+		"name": "Basic Attention Token",
+		"code": "BAT",
+		"asset_id": "f82d4f2b-d07c-41b4-a4f9-5a2b205ddbeb"
+	},
+	
+	{
+		"name": "Bitcoin Cash",
+		"code": "BCH",
+		"asset_id": "9c24af21-2344-4e4b-9d8b-aee94e8ce88d"
+	},
+	
+	{
+		"name": "Bitcoin",
+		"code": "BTC",
+		"asset_id": "8fc4b27f-cdce-41ea-b666-63d5838fee02"
+	},
+	
+	{
+		"name": "Civic",
+		"code": "CVC",
+		"asset_id": "2b3cc483-7c88-4d32-b892-8926dcefa682"
+	},
+	
+	{
+		"name": "Dai",
+		"code": "DAI",
+		"asset_id": "7d0c5375-5f2b-4064-80d4-4215d22d7c30"
+	},
+	
+	{
+		"name": "Dash",
+		"code": "DASH",
+		"asset_id": "cafcb2c6-cd85-432e-a9e8-dabc030d1ecc"
+	},
+	
+	{
+		"name": "district0x",
+		"code": "DNT",
+		"asset_id": "30358505-710c-4f70-a048-2b8fdc83144f"
+	},
+	
+	{
+		"name": "EOS",
+		"code": "EOS",
+		"asset_id": "f0589e60-f584-4229-aebc-5453d2d9afe8"
+	},
+	
+	{
+		"name": "Ethereum Classic",
+		"code": "ETC",
+		"asset_id": "8a7baf76-93a1-4ed6-a996-02f59196e68f"
+	},
+	
+	{
+		"name": "Ethereum",
+		"code": "ETH",
+		"asset_id": "71c4b7be-b468-4bd2-ae2e-a7bb9bac7d69"
+	},
+	
+	{
+		"name": "Golem",
+		"code": "GNT",
+		"asset_id": "3816ad8d-2e12-4f79-b222-5fa6764c630c"
+	},
+	
+	{
+		"name": "Kyber Network",
+		"code": "KNC",
+		"asset_id": "d448cf8b-0c66-42c6-a862-3282f0f75cc9"
+	},
+	
+	{
+		"name": "Chainlink",
+		"code": "LINK",
+		"asset_id": "43ac56ad-4701-473e-9d23-5325ff5855b5"
+	},
+	
+	{
+		"name": "Loom",
+		"code": "LOOM",
+		"asset_id": "7dc172db-a1b2-4290-b2be-b18d8bbc0ac9"
+	},
+	
+	{
+		"name": "Litecoin",
+		"code": "LTC",
+		"asset_id": "29db1547-b07a-4e4b-a872-5d2a9d1527b4"
+	},
+	
+	{
+		"name": "Decentraland",
+		"code": "MANA",
+		"asset_id": "849e6400-3a14-424a-b1a9-1d7cd34b9224"
+	},
+	
+	{
+		"name": "Maker",
+		"code": "MKR",
+		"asset_id": "d36ba0c9-0512-49cc-a055-6a6b40db194d"
+	},
+	
+	{
+		"name": "OmiseGO",
+		"code": "OMG",
+		"asset_id": "a3b40f82-29e7-44d0-a2d9-a738cb353be3"
+	},
+	
+	{
+		"name": "Orchid",
+		"code": "OXT",
+		"asset_id": "42b6399d-ef83-446f-b39b-725ebd4fda6a"
+	},
+	
+	{
+		"name": "Augur",
+		"code": "REP",
+		"asset_id": "f0d7ebc4-e103-40b1-9122-44c1be4f9978"
+	},
+	
+	{
+		"name": "USD Coin",
+		"code": "USDC",
+		"asset_id": "387ce710-4e0d-4304-8491-43f852eb62b0"
+	},
+	
+	{
+		"name": "US Dollar",
+		"code": "USD",
+		"asset_id": "2d8726c4-9929-45b2-8169-315692c04533"
+	},
+	
+	{
+		"name": "Stellar Lumens",
+		"code": "XLM",
+		"asset_id": "beca19db-e9d1-479a-86c4-7f6b6cb3e690"
+	},
+	
+	{
+		"name": "XRP",
+		"code": "XRP",
+		"asset_id": "086a8f6b-eb4e-4c7b-b949-3e4752a536d0"
+	},
+	
+	{
+		"name": "Tezos",
+		"code": "XTZ",
+		"asset_id": "2179660b-86de-42ca-a8b9-586ffe2c523e"
+	},
+	
+	{
+		"name": "Zcash",
+		"code": "ZEC",
+		"asset_id": "95b8e35e-5b3c-4cc2-bf6f-32dc1a64d27e"
+	},
+	
+	{
+		"name": "0x",
+		"code": "ZRX",
+		"asset_id": "0c7ce047-5226-4b8c-b35c-2af8e55407b0"
+	}
+	
+]
