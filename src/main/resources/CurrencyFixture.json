@@ -171,6 +171,12 @@
 		"name": "0x",
 		"code": "ZRX",
 		"asset_id": "0c7ce047-5226-4b8c-b35c-2af8e55407b0"
+	}, 
+	
+	{
+		"name": "Compound",
+		"code": "COMP",
+		"asset_id": "null"
 	}
 	
 ]

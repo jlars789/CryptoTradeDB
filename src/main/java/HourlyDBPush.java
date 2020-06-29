@@ -99,7 +99,7 @@ public class HourlyDBPush implements Runnable {
 				return;
 			}
 			
-			String query = "INSERT INTO Hourly (time";
+			String query = "INSERT INTO Hourly0 (time";
 			for(int i = 0; i < pass.length; i++) {
 				query+= ", ";
 				query += pass[i].getCode();
@@ -162,7 +162,7 @@ public class HourlyDBPush implements Runnable {
 	}
 	
 	public static Request buildCoinCapRequest() {
-		String url = "http://" + COINCAP_URL + "?limit=250";
+		String url = "http://" + COINCAP_URL + "?limit=400";
 		System.out.println("Attempting to GET data from " + url);
 		Request request = new Request.Builder()
 				.addHeader("Accept-Encoding", "deflate")

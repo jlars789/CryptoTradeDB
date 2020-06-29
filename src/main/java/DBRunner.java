@@ -14,6 +14,8 @@ public class DBRunner {
 	public static int currencyCount;
 
 	public static void main(String[] args) {
+		//rebuildTables();
+		
 		LocalDateTime start = LocalDateTime.now();
 		LocalDateTime hourEnd = start.plusHours(1).truncatedTo(ChronoUnit.HOURS);
 		long hour = Duration.between(start, hourEnd).toMillis();
@@ -38,6 +40,7 @@ public class DBRunner {
 		if(args == null || args.length == 0) weekScheduler = weekBasedOperator.scheduleAtFixedRate(q, twoDay, 604800000, TimeUnit.MILLISECONDS);
 		else if(args[0].equalsIgnoreCase("TEST")) weekScheduler = weekBasedOperator.scheduleAtFixedRate(q, 1440, 1440, TimeUnit.SECONDS);
 		
+		
 	}
 	
 	public static void rebuildTables() {
@@ -54,8 +57,8 @@ public class DBRunner {
 			String[] dat = new HourlyDBPush().getCodes();
 			
 			for(int i = 0; i < dat.length; i++) {
-				String query = "ALTER TABLE Hourly ADD "+ dat[i] + " decimal(8, 3)";
-				String query1 = "ALTER TABLE Daily ADD "+ dat[i] + " decimal(8, 3)";
+				String query = "ALTER TABLE Hourly0 ADD "+ dat[i] + " decimal(11, 6)";
+				String query1 = "ALTER TABLE Daily ADD "+ dat[i] + " decimal(11, 6)";
 				PreparedStatement ps = dbConn.prepareStatement(query);
 				ps.execute();
 			}
